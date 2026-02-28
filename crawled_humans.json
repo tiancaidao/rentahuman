@@ -1,0 +1,269 @@
+[
+  {
+    "name": "Liza Sheehy",
+    "location": "Barcelona, ES",
+    "skills": [
+      "Executive Support",
+      "Business Operations"
+    ],
+    "rate": 25
+  },
+  {
+    "name": "Naseem Ibrahim",
+    "location": "Abu gosh, IL",
+    "skills": [
+      "Data Verification",
+      "AI Validation"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Linda",
+    "location": "Wixom, US",
+    "skills": [
+      "Controller",
+      "Gamer"
+    ],
+    "rate": 75
+  },
+  {
+    "name": "maicol perez",
+    "location": "Lima, Peru",
+    "skills": [
+      "Publicar videos",
+      "Ver anime"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Ms Deena",
+    "location": "Gig Harbor, US",
+    "skills": [
+      "Running errands and completing deliveries",
+      "Picking up and dropping off items"
+    ],
+    "rate": 35
+  },
+  {
+    "name": "Bala Vikram Tadikonda",
+    "location": "Chicago, US",
+    "skills": [
+      "Critical thinking",
+      "AI Output Evaluation Business"
+    ],
+    "rate": 80
+  },
+  {
+    "name": "Ana M",
+    "location": "Salvatierra",
+    "skills": [
+      "Office, impresora, computadora y celular"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Rafael S",
+    "location": "Bogotá, CO",
+    "skills": [
+      "Análisis financiero",
+      "Economía aplicada"
+    ],
+    "rate": 60
+  },
+  {
+    "name": "Alcatraz",
+    "location": "San Francisco del Rincón, MX",
+    "skills": [
+      "Tengo buena salud",
+      "Tengo buena actitud"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Güipe",
+    "location": "El Tigre, VE",
+    "skills": [
+      "Technical Logic & Backend Code Review",
+      "Secure Encrypted Context & Data Custody"
+    ],
+    "rate": 30
+  },
+  {
+    "name": "11 6",
+    "location": "Yokohama, JP",
+    "skills": [
+      "服装设计",
+      "剪辑"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Sanaseeri",
+    "location": "Sobah al-ahmad",
+    "skills": [
+      "I can drive for long time",
+      "I can fight"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Cookies Near Me",
+    "location": "New York",
+    "skills": [
+      "Gift-giving",
+      "Local delivery"
+    ],
+    "rate": 30
+  },
+  {
+    "name": "Andrey",
+    "location": "Bangkok, TH",
+    "skills": [
+      "Research & fact checking",
+      "Technical setup & configuration"
+    ],
+    "rate": 49
+  },
+  {
+    "name": "Blue rose",
+    "location": "Higashi Murayama, JP",
+    "skills": [
+      "MS word",
+      "MS excel"
+    ],
+    "rate": 30
+  },
+  {
+    "name": "Geoffrey Tatankien",
+    "location": "Dallas, US",
+    "skills": [
+      "Creativity",
+      "Adaptable"
+    ],
+    "rate": 60
+  },
+  {
+    "name": "ouico",
+    "location": "San Francisco",
+    "skills": [
+      "Human Presence",
+      "Temporal Compliance"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "VOID",
+    "location": "quebec",
+    "skills": [
+      "AI output evaluation",
+      "Hallucination detection"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Amanda Lynnae",
+    "location": "Blaine, United States",
+    "skills": [
+      "Ambiguity resolution",
+      "Fraud & inconsistency detection"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Davide Cavallini",
+    "location": "Noale, Italy",
+    "skills": [
+      "Human-in-the-loop systems",
+      "AI workflow architecture"
+    ],
+    "rate": 100
+  },
+  {
+    "name": "Petra Ahlert",
+    "location": "Zug and Zurich, CH",
+    "skills": [
+      "Executive Leadership",
+      "Growth Strategies"
+    ],
+    "rate": 460
+  },
+  {
+    "name": "Furkan Saglam",
+    "location": "Munich",
+    "skills": [
+      "Gaming",
+      "Boxing"
+    ],
+    "rate": 29
+  },
+  {
+    "name": "dank m0m",
+    "location": "New Orleans",
+    "skills": [
+      "data entry",
+      "office administrator"
+    ],
+    "rate": 38
+  },
+  {
+    "name": "adem",
+    "location": "ARIANA, TR",
+    "skills": [
+      "everything"
+    ],
+    "rate": 500
+  },
+  {
+    "name": "Alicia Ismach",
+    "location": "Moncton, CA",
+    "skills": [
+      "Fundraising",
+      "Board Membership"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Felipe Rodrigues",
+    "location": "Rishikesh, India",
+    "skills": [
+      "Design",
+      "Writing"
+    ],
+    "rate": 98
+  },
+  {
+    "name": "Kate Minium",
+    "location": "Chicago, US",
+    "skills": [
+      "Legal support",
+      "Administrative support"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Dillon",
+    "location": "Gotebo, USA",
+    "skills": [
+      "Sales",
+      "Account Management"
+    ],
+    "rate": 60
+  },
+  {
+    "name": "Dimple",
+    "location": "Shah Alam, Malaysia",
+    "skills": [
+      "Verification & confirmation",
+      "Research & synthesis"
+    ],
+    "rate": 50
+  },
+  {
+    "name": "Musa Raja",
+    "location": "Sihanouville, KH",
+    "skills": [
+      "Computer master trader"
+    ],
+    "rate": 50
+  }
+]
