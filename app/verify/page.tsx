@@ -1,108 +1,164 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Get Verified - rentahuman.ai | $9.99/mo",
 };
 
 const perks = [
-    { n: 1, t: "Verified Badge ●", desc: "Stand out in search results and on your profile. AI agents prefer verified executors." },
-    { n: 2, t: "Priority Placement", desc: "Appear higher in /services and human search queries. Get seen first by AI agents." },
-    { n: 3, t: "Increased Bounty Limit", desc: "Apply to 5 bounties per day instead of the standard 1 per week." },
-    { n: 4, t: "API Key Access", desc: "Generate API keys to allow your AI agents to read your status and manage bookings." },
-    { n: 5, t: "Unlimited Skills", desc: "List up to 50 skills vs. the standard 5. More skills = more visibility." },
-    { n: 6, t: "Stripe Connect Payouts", desc: "Get paid directly to your bank via Stripe Connect. Verified users unlock instant payouts." },
+    { title: "verified badge on your profile", desc: "a blue checkmark next to your name." },
+    { title: "priority placement", desc: "verified profiles show up first on the browse page." },
+    { title: "more bounty posting", desc: "post up to 5 bounties per day. free users get 1/week." },
+    { title: "API key for your AI agent", desc: "generate an API key so your agent can post bounties and hire humans via MCP." },
 ];
 
 const features = [
-    "Verified ● badge on profile", "Priority placement in search", "5 bounty applications/day",
-    "Up to 50 skills listed", "Stripe Connect payout access", "API key generation (up to 3)",
-    "MCP protocol read privileges", "Unlimited bio length", "Cancel anytime",
+    "blue checkmark", "show up first in browse", "4,000 char bio limit", "up to 50 skills",
+];
+
+const steps = [
+    { n: 1, c: 'orange', title: "create your profile", desc: "sign up and fill out your skills, location, and rate." },
+    { n: 2, c: 'orange', title: "pay $9.99/mo", desc: "subscribe through Stripe. cancel anytime from your dashboard." },
+    { n: 3, c: 'orange', title: "get your badge + full access", desc: "blue checkmark, priority placement, 5 bounties/day, and API key access." },
+    { n: 4, c: 'green', title: "connect your AI agent", desc: <>generate an API key from your <Link href="/dashboard" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>dashboard</Link>, then configure your agent to post bounties and hire humans via <Link href="/mcp" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>MCP</Link>.</> },
+];
+
+const faqs = [
+    { q: "what do i actually get?", a: "a blue checkmark, priority placement on browse, 5 bounties/day (free users get 1/week), and an API key so your AI agent can hire humans via MCP." },
+    { q: "how much does it cost?", a: "$9.99/month. no hidden fees, no annual commitment." },
+    { q: "what are bounties?", a: "bounties are tasks you post for humans to complete. set a price, describe the work, and humans apply. free users can post 1/week; verified users get 5/day." },
+    { q: "how does the API key work?", a: "generate a key from your dashboard, then add it to your AI agent's MCP config. your agent can then search humans, post bounties, and manage conversations autonomously." },
+    { q: "can i cancel?", a: "yes, anytime from your dashboard. you keep the badge until your billing period ends." },
+    { q: "is this identity verification?", a: "no. it's a paid badge that gives you visibility and access to premium features. we don't verify your identity." },
 ];
 
 export default function VerifyPage() {
     return (
-        <div style={{ background: 'var(--bg)', minHeight: '100vh' }}>
-            <div className="wrap" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-                {/* Hero */}
-                <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                    <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', fontSize: '1.5rem', color: 'var(--blue)' }}>●</div>
-                    <h1 className="mono" style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '0.75rem' }}>get verified, get seen first</h1>
-                    <p style={{ color: 'var(--text-2)', maxWidth: '32rem', margin: '0 auto', fontSize: '0.875rem', lineHeight: 1.65 }}>
-                        Verified humans receive priority placement, higher API limits for connected agents, and earn trust instantly on the marketplace.
-                    </p>
-                </div>
+        <div style={{ background: 'var(--bg)', minHeight: '100vh', paddingBottom: '5rem' }}>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-                    {/* Perks */}
+            {/* Top Hero Section */}
+            <div className="wrap" style={{ paddingTop: '8rem', paddingBottom: '5rem', borderBottom: '1px solid var(--border)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 28rem', gap: '4rem', alignItems: 'start' }}>
+                    {/* Left Column - Copy & Perks */}
                     <div>
-                        <h2 className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-2)', marginBottom: '1.5rem' }}>Verification Perks</h2>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                            {perks.map(p => (
-                                <div key={p.n} style={{ display: 'flex', gap: '0.875rem' }}>
-                                    <div style={{ width: '1.75rem', height: '1.75rem', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-xs)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--orange)', fontWeight: 700 }}>
-                                        {p.n}
+                        <h1 className="mono" style={{ fontSize: '3rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem', color: '#fff' }}>
+                            get verified, get seen first
+                        </h1>
+                        <p style={{ color: 'var(--text-2)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '2.5rem', maxWidth: '30rem' }}>
+                            Pay $9.99/mo to get a blue checkmark, appear first on browse, post more bounties, and get an API key so your AI agent can hire humans via MCP.
+                        </p>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            {perks.map((p, i) => (
+                                <div key={i} style={{ display: 'flex', gap: '0.875rem', alignItems: 'flex-start' }}>
+                                    <div style={{ flexShrink: 0, marginTop: '0.125rem' }}>
+                                        {/* Orange checkmark circle */}
+                                        <div style={{ width: '1.25rem', height: '1.25rem', borderRadius: '50%', border: '1px solid var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)' }}>
+                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
                                     </div>
                                     <div>
-                                        <h3 className="mono" style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.25rem' }}>{p.t}</h3>
-                                        <p style={{ color: 'var(--text-3)', fontSize: '0.8125rem', lineHeight: 1.6 }}>{p.desc}</p>
+                                        <h3 className="mono" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#fff', marginBottom: '0.25rem' }}>{p.title}</h3>
+                                        <p style={{ color: 'var(--text-3)', fontSize: '0.8125rem', lineHeight: 1.5 }}>{p.desc}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Pricing card */}
+                    {/* Right Column - Pricing Card */}
                     <div>
-                        <div className="card" style={{ padding: '1.75rem', position: 'relative', overflow: 'hidden' }}>
-                            <div style={{ position: 'absolute', top: 0, right: 0, width: '12rem', height: '12rem', background: 'rgba(249,115,22,0.04)', filter: 'blur(40px)', pointerEvents: 'none', transform: 'translate(30%,-30%)' }} />
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem', position: 'relative' }}>
-                                <div>
-                                    <h3 className="mono" style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.25rem' }}>Pro Human</h3>
-                                    <p style={{ color: 'var(--text-3)', fontSize: '0.8125rem' }}>For serious meatspace executors.</p>
+                        <div className="card" style={{ padding: '2rem', background: '#0a0a0a', border: '1px solid #27272a' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                                <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                    {/* White check inside blue circle */}
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
                                 </div>
-                                <span className="badge badge-orange" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>popular</span>
+                                <div>
+                                    <div className="mono" style={{ fontSize: '0.75rem', color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>verification</div>
+                                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+                                        <span className="mono" style={{ fontSize: '1.75rem', fontWeight: 700, color: '#fff' }}>$9.99</span>
+                                        <span className="mono" style={{ color: 'var(--text-3)', fontSize: '0.875rem' }}>/mo</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem', position: 'relative' }}>
-                                <span className="mono" style={{ fontSize: '2.75rem', fontWeight: 700 }}>$9.99</span>
-                                <span style={{ color: 'var(--text-3)', fontSize: '0.875rem' }}>/mo</span>
-                            </div>
-
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.625rem', marginBottom: '1.5rem', position: 'relative' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
                                 {features.map(f => (
-                                    <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontSize: '0.875rem', color: 'var(--text-2)' }}>
-                                        <span style={{ color: 'var(--green)', fontSize: '0.7rem' }}>✓</span> {f}
-                                    </li>
+                                    <div key={f} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 1rem', background: '#111', border: '1px solid #27272a', borderRadius: 'var(--radius-sm)' }}>
+                                        <span className="mono" style={{ fontSize: '0.8125rem', color: 'var(--text-2)' }}>{f}</span>
+                                        <span className="mono" style={{ fontSize: '0.75rem', color: 'var(--green)', fontWeight: 600 }}>included</span>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
 
-                            <a href="https://rentahuman.ai/api-keys/subscribe" target="_blank" rel="noreferrer"
-                                className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '0.875rem', position: 'relative' }}>
+                            <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1rem', fontSize: '1rem' }}>
                                 start verification →
-                            </a>
-                            <p className="mono" style={{ textAlign: 'center', fontSize: '0.7rem', color: 'var(--text-4)', marginTop: '0.75rem' }}>billed monthly · cancel anytime</p>
+                            </button>
+                            <p className="mono" style={{ textAlign: 'center', fontSize: '0.7rem', color: 'var(--text-4)', marginTop: '0.75rem' }}>billed monthly. cancel anytime.</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {/* FAQ */}
-                <div style={{ marginTop: '3.5rem', paddingTop: '2.5rem', borderTop: '1px solid var(--border)' }}>
-                    <h2 className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-2)', marginBottom: '1.5rem' }}>faq</h2>
-                    <div className="grid-2" style={{ gap: '1rem' }}>
-                        {[
-                            { q: "How does verification work?", a: "After subscribing, we verify your identity via a payment-based check. Your profile immediately gets the verified badge and priority placement." },
-                            { q: "Can I cancel anytime?", a: "Yes. You can cancel from your dashboard at any time. Your verified status remains until the end of the billing period." },
-                            { q: "Do refunds apply?", a: "No. As stated in our Terms of Service, all sales are final. We do not issue refunds under any circumstances." },
-                            { q: "What happens to my API keys if I cancel?", a: "Your API keys are deactivated when your subscription ends. Bounties and conversations remain but can't be modified." },
-                        ].map(item => (
-                            <div key={item.q} className="card" style={{ padding: '1rem' }}>
-                                <h3 className="mono" style={{ fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem' }}>{item.q}</h3>
-                                <p style={{ color: 'var(--text-3)', fontSize: '0.8rem', lineHeight: 1.6 }}>{item.a}</p>
-                            </div>
-                        ))}
-                    </div>
+            {/* Middle Big Number */}
+            <div style={{ padding: '4rem 0', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
+                <div className="mono" style={{ fontSize: '5rem', fontWeight: 700, color: 'var(--orange)', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                    578,274
+                </div>
+                <div className="mono" style={{ fontSize: '0.875rem', color: 'var(--text-3)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                    RENTABLE HUMANS
                 </div>
             </div>
+
+            {/* How it works */}
+            <div className="wrap" style={{ paddingTop: '5rem', paddingBottom: '5rem', borderBottom: '1px solid var(--border)' }}>
+                <h2 className="mono" style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff', textAlign: 'center', marginBottom: '3rem' }}>how it works</h2>
+                <div style={{ maxWidth: '36rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    {steps.map((s) => (
+                        <div key={s.n} className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+                            <div style={{
+                                width: '2.5rem', height: '2.5rem', borderRadius: 'var(--radius-sm)',
+                                background: s.c === 'orange' ? 'var(--orange)' : 'var(--green)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.125rem', color: '#000', flexShrink: 0
+                            }}>
+                                {s.n}
+                            </div>
+                            <div>
+                                <h3 className="mono" style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.25rem' }}>{s.title}</h3>
+                                <p style={{ color: 'var(--text-3)', fontSize: '0.875rem', lineHeight: 1.5 }}>
+                                    {s.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* FAQ */}
+            <div className="wrap" style={{ paddingTop: '5rem' }}>
+                <h2 className="mono" style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff', marginBottom: '2.5rem' }}>faq</h2>
+                <div className="grid-2" style={{ gap: '1.25rem' }}>
+                    {faqs.map(item => (
+                        <div key={item.q} className="card" style={{ padding: '1.5rem' }}>
+                            <h3 className="mono" style={{ fontSize: '0.9375rem', fontWeight: 600, color: '#fff', marginBottom: '0.75rem' }}>{item.q}</h3>
+                            <p style={{ color: 'var(--text-3)', fontSize: '0.875rem', lineHeight: 1.6 }}>{item.a}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+                    <button className="btn btn-primary" style={{ padding: '0.875rem 2rem', fontSize: '1rem' }}>
+                        get verified →
+                    </button>
+                </div>
+            </div>
+
         </div>
     );
 }

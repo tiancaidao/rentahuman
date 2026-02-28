@@ -47,17 +47,22 @@ model Service {
 }
 
 model Bounty {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  category    String
-  minPrice    Float?
-  maxPrice    Float?
-  dueDate     DateTime?
-  spots       Int      @default(1)
-  location    String?  // e.g. 'Remote', 'San Francisco'
-  status      String   @default("OPEN") // 'OPEN', 'IN_PROGRESS', 'COMPLETED'
-  imageUrl    String?
+  id             String    @id @default(uuid())
+  title          String
+  description    String
+  requirements   String?   // Store newline-separated text
+  skillsNeeded   String?   // Store comma-separated text
+  category       String
+  price          Float?    // The actual price entered
+  priceType      String    @default("FIXED") // 'FIXED' or 'HOURLY'
+  currency       String    @default("USD")
+  estimatedHours Int?      // For HOURLY bounties
+  spots          Int       @default(1)
+  dueDate        DateTime?
+  location       String?   // e.g. 'New York, NY, USA' or 'Remote'
+  status         String    @default("OPEN") // 'OPEN', 'IN_PROGRESS', 'COMPLETED'
+  imageUrl       String?
+  verifiedOnly   Boolean   @default(false)
 
   posterId    String
   poster      User     @relation(fields: [posterId], references: [id])
