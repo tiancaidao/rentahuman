@@ -102,7 +102,7 @@ export default async function ServicesPage({ searchParams }: { searchParams: Pro
                 ) : (
                     <div className="grid-3" style={{ gap: '0.875rem' }}>
                         {services.map((s: any) => (
-                            <Link key={s.id} href={`/humans/${s.humanId}`}
+                            <Link key={s.id} href={`/services/${s.humanId}/${s.id}`}
                                 style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', textDecoration: 'none', display: 'flex', flexDirection: 'column', transition: 'border-color 0.15s' }}>
                                 <div style={{ height: '5rem', background: 'var(--bg-hover)', position: 'relative', display: 'flex', alignItems: 'flex-end', padding: '0.5rem' }}>
                                     <span style={{ position: 'absolute', top: '0.5rem', left: '0.5rem', background: 'rgba(9,9,11,0.8)', border: '1px solid var(--border)', color: 'var(--text-3)', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '0.125rem 0.5rem', borderRadius: 'var(--radius-xs)' }}>{s.category}</span>

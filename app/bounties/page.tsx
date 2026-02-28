@@ -112,7 +112,7 @@ export default async function BountiesPage({ searchParams }: { searchParams: Pro
                         </div>
                     ) : (
                         bounties.map((b: any) => (
-                            <div key={b.id} className="card" style={{ padding: '1rem', cursor: 'pointer' }}>
+                            <Link key={b.id} href={`/bounties/${b.id}`} className="card" style={{ padding: '1rem', cursor: 'pointer', textDecoration: 'none', display: 'block' }}>
                                 <div style={{ display: 'flex', gap: '0.875rem', alignItems: 'flex-start' }}>
                                     <div style={{ width: '2.5rem', height: '2.5rem', background: 'var(--bg-hover)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem', flexShrink: 0 }}>
                                         {catIcon[b.category] || catIcon.default}
@@ -136,7 +136,7 @@ export default async function BountiesPage({ searchParams }: { searchParams: Pro
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))
                     )}
                 </div>

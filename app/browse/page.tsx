@@ -58,7 +58,7 @@ export default async function BrowsePage({
                         const init = (h.name || '?').charAt(0).toUpperCase();
                         const views = 100 + ((h.id?.charCodeAt(0) || 1) * 37) % 4000;
                         return (
-                            <div key={h.id} className="card card-orange" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+                            <Link key={h.id} href={`/humans/${h.id}`} className="card card-orange" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.625rem', textDecoration: 'none' }}>
                                 {/* Header */}
                                 <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                                     <div style={{ width: '3rem', height: '3rem', borderRadius: '50%', background: 'var(--bg-hover)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.125rem', color: 'var(--text-3)', flexShrink: 0 }}>
@@ -93,9 +93,9 @@ export default async function BrowsePage({
                                     <span className="mono" style={{ color: 'var(--orange)', fontWeight: 700, fontSize: '1rem' }}>
                                         ${h.hourlyRate || 50}<span style={{ fontSize: '0.7rem', color: 'var(--text-3)', fontWeight: 400 }}>/hr</span>
                                     </span>
-                                    <Link href={`/humans/${h.id}`} className="btn btn-primary" style={{ padding: '0.375rem 0.875rem', fontSize: '0.75rem' }}>rent</Link>
+                                    <span className="btn btn-primary" style={{ padding: '0.375rem 0.875rem', fontSize: '0.75rem' }}>rent</span>
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>
