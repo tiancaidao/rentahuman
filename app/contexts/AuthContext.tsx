@@ -26,6 +26,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // auth is only defined on the client when Firebase env vars are present
+        if (!auth) {
+            setLoading(false);
+            return;
+        }
         const unsub = onAuthStateChanged(auth, (u) => {
             setUser(u);
             setLoading(false);
@@ -34,11 +39,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, []);
 
     async function signInWithGoogle() {
+        if (!auth) throw new Error('Firebase not initialized');
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
     }
 
     async function signInWithEmail(email: string, password: string, isSignUp = false) {
+        if (!auth) throw new Error('Firebase not initialized');
         if (isSignUp) {
             await createUserWithEmailAndPassword(auth, email, password);
         } else {
@@ -47,6 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     async function signOut() {
+        if (!auth) return;
         await firebaseSignOut(auth);
     }
 
