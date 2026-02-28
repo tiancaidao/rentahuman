@@ -37,7 +37,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { title, description, category, minPrice, maxPrice, dueDate, spots, location, imageUrl, posterId } = body;
+        const { title, description, category, requirements, skillsNeeded, price, priceType, currency, estimatedHours, verifiedOnly, dueDate, spots, location, imageUrl, posterId } = body;
 
         if (!posterId) {
             return NextResponse.json({ error: 'Missing posterId' }, { status: 400 });
@@ -48,8 +48,13 @@ export async function POST(request: Request) {
                 title,
                 description,
                 category,
-                minPrice: minPrice ? parseFloat(minPrice) : null,
-                maxPrice: maxPrice ? parseFloat(maxPrice) : null,
+                requirements,
+                skillsNeeded,
+                price: price ? parseFloat(price) : null,
+                priceType: priceType || 'FIXED',
+                currency: currency || 'USD',
+                estimatedHours: estimatedHours ? parseInt(estimatedHours) : null,
+                verifiedOnly: verifiedOnly || false,
                 dueDate: dueDate ? new Date(dueDate) : null,
                 spots: spots ? parseInt(spots) : 1,
                 location,

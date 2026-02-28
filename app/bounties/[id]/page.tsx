@@ -136,18 +136,16 @@ export default async function BountyDetailPage({ params }: { params: Promise<{ i
                         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '1.25rem' }}>
                             <div style={{ marginBottom: '0.5rem' }}>
                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '2rem', fontWeight: 700, color: 'var(--orange)' }}>
-                                    ${bounty.minPrice && bounty.maxPrice && bounty.minPrice !== bounty.maxPrice
-                                        ? `${bounty.minPrice}–${bounty.maxPrice}`
-                                        : bounty.minPrice || bounty.maxPrice || '?'}
+                                    {bounty.price != null ? bounty.price : '?'}
                                 </span>
                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', color: 'var(--text-3)', marginLeft: '0.375rem' }}>
-                                    {bounty.minPrice && bounty.maxPrice && bounty.minPrice !== bounty.maxPrice ? '' : 'fixed'}
+                                    {bounty.priceType === 'HOURLY' ? '/hr' : 'fixed'}
                                 </span>
                             </div>
-                            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-4)' }}>USD</p>
+                            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-4)' }}>{bounty.currency || 'USD'}</p>
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.875rem', paddingTop: '0.875rem', borderTop: '1px solid var(--border)' }}>
                                 <span style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>Estimated hours</span>
-                                <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--text-2)', fontWeight: 600 }}>~2h</span>
+                                <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--text-2)', fontWeight: 600 }}>{bounty.estimatedHours ? `~${bounty.estimatedHours}h` : '—'}</span>
                             </div>
                         </div>
 
