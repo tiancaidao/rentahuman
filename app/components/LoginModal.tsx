@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth } from '@/app/contexts/AuthContext';
 
 interface LoginModalProps {
@@ -42,7 +43,12 @@ export default function LoginModal({ onClose }: LoginModalProps) {
         }
     }
 
-    return (
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) return null;
+
+    return createPortal(
         /* Backdrop */
         <div
             onClick={onClose}
@@ -195,6 +201,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                     )}
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
